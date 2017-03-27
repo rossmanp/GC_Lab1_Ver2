@@ -8,13 +8,18 @@ using System.Threading.Tasks;
 //Grand Circus .NET Lab 1
 //March 27, 2017
 
+// This program takes the length, width, and height of a room and
+// outputs the area, perimeter, and volume. There is also a prompt
+// after the user inputs variables that states if the user wants to
+// continue. If not, the program ends.
+
 namespace GC_Lab1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //User inputs dimensions of the room.
+            //The user inputs the dimensions of the room.
             Console.Write("Enter Length: ");
             double length = Convert.ToDouble(Console.ReadLine());
             Console.Write("Enter Width: ");
@@ -50,7 +55,7 @@ namespace GC_Lab1
                 }
                 else
                 {
-                    //If neither y or n is input, the program prints and error message and
+                    //If neither y or n is input, the program prints an error message and
                     //asks the user once again for y or n.
                     Console.WriteLine("That was not valid input. Please try again.");
                 }
