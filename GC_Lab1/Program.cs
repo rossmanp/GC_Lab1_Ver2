@@ -4,12 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Pete Rossman
+//Grand Circus .NET Lab 1
+//March 27, 2017
+
 namespace GC_Lab1
 {
     class Program
     {
         static void Main(string[] args)
         {
+            //User inputs dimensions of the room.
             Console.Write("Enter Length: ");
             double length = Convert.ToDouble(Console.ReadLine());
             Console.Write("Enter Width: ");
@@ -17,6 +22,7 @@ namespace GC_Lab1
             Console.Write("Enter Height: ");
             double height = Convert.ToDouble(Console.ReadLine());
 
+            //This while loop runs until the user gives a yes (y) or no (n) response to the prompt.
             bool runLoop = true;
             while (runLoop)
             {
@@ -24,6 +30,7 @@ namespace GC_Lab1
                 string entry = Console.ReadLine();
                 if (entry.ToLower() == "y")
                 {
+                    //The area, perimeter, and volume of the room are calculated and output.
                     double area = length * width;
                     double perimeter = (2 * length) + (2 * width);
                     double volume = area * height;
@@ -36,12 +43,15 @@ namespace GC_Lab1
                 }
                 else if (entry.ToLower() == "n")
                 {
+                    //"Goodbye!" is printed and the program ends.
                     Console.WriteLine("Goodbye!");
                     Console.ReadLine();
                     runLoop = false;
                 }
                 else
                 {
+                    //If neither y or n is input, the program prints and error message and
+                    //asks the user once again for y or n.
                     Console.WriteLine("That was not valid input. Please try again.");
                 }
             }
