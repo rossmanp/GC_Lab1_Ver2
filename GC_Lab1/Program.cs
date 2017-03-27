@@ -10,16 +10,17 @@ namespace GC_Lab1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter Length: ");
+            Console.Write("Enter Length: ");
             double length = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter Width: ");
+            Console.Write("Enter Width: ");
             double width = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter Height: ");
+            Console.Write("Enter Height: ");
             double height = Convert.ToDouble(Console.ReadLine());
+
             bool runLoop = true;
             while (runLoop)
             {
-                Console.WriteLine("Continue? (y/n)");
+                Console.Write("Continue? (y/n): ");
                 string entry = Console.ReadLine();
                 if (entry.ToLower() == "y")
                 {
