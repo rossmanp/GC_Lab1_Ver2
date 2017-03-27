@@ -17,14 +17,27 @@ namespace GC_Lab1
             Console.WriteLine("Enter Height: ");
             double height = Convert.ToDouble(Console.ReadLine());
 
-            double area = length * width;
-            double perimeter = (2 * length) + (2 * width);
-            double volume = area * height;
+            Console.WriteLine("Continue? (y/n)");
+            string entry = Console.ReadLine();
+            if (entry.ToLower() == "y")
+            {
+                double area = length * width;
+                double perimeter = (2 * length) + (2 * width);
+                double volume = area * height;
 
-            Console.WriteLine("Area: " + area);
-            Console.WriteLine("Perimeter: " + perimeter);
-            Console.WriteLine("Volume: " + volume);
-            Console.ReadLine();            
+                Console.WriteLine("Area: " + area);
+                Console.WriteLine("Perimeter: " + perimeter);
+                Console.WriteLine("Volume: " + volume);
+                Console.ReadLine();
+            }
+            elseif (entry.ToLower == "n")
+            {
+                Console.WriteLine("Goodbye!");
+            }         
+            else 
+            {
+                Console.WriteLine("That was not valid input.");
+            } 
         }
     }
 }
