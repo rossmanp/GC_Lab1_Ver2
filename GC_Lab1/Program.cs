@@ -16,28 +16,34 @@ namespace GC_Lab1
             double width = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter Height: ");
             double height = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("Continue? (y/n)");
-            string entry = Console.ReadLine();
-            if (entry.ToLower() == "y")
+            bool runLoop = true;
+            while (runLoop)
             {
-                double area = length * width;
-                double perimeter = (2 * length) + (2 * width);
-                double volume = area * height;
+                Console.WriteLine("Continue? (y/n)");
+                string entry = Console.ReadLine();
+                if (entry.ToLower() == "y")
+                {
+                    double area = length * width;
+                    double perimeter = (2 * length) + (2 * width);
+                    double volume = area * height;
 
-                Console.WriteLine("Area: " + area);
-                Console.WriteLine("Perimeter: " + perimeter);
-                Console.WriteLine("Volume: " + volume);
-                Console.ReadLine();
+                    Console.WriteLine("Area: " + area);
+                    Console.WriteLine("Perimeter: " + perimeter);
+                    Console.WriteLine("Volume: " + volume);
+                    Console.ReadLine();
+                    runLoop = false;
+                }
+                else if (entry.ToLower() == "n")
+                {
+                    Console.WriteLine("Goodbye!");
+                    Console.ReadLine();
+                    runLoop = false;
+                }
+                else
+                {
+                    Console.WriteLine("That was not valid input. Please try again.");
+                }
             }
-            elseif (entry.ToLower == "n")
-            {
-                Console.WriteLine("Goodbye!");
-            }         
-            else 
-            {
-                Console.WriteLine("That was not valid input.");
-            } 
         }
     }
 }
