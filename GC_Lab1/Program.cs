@@ -36,9 +36,9 @@ namespace GC_Lab1
                 if (entry.ToLower() == "y")
                 {
                     //The area, perimeter, and volume of the room are calculated and output.
-                    double area = length * width;
-                    double perimeter = (2 * length) + (2 * width);
-                    double volume = area * height;
+                    double area = Area(length, width);
+                    double perimeter = Perimeter(length, width);
+                    double volume = Volume(length, width, height);
 
                     Console.WriteLine("Area: " + area);
                     Console.WriteLine("Perimeter: " + perimeter);
@@ -61,5 +61,18 @@ namespace GC_Lab1
                 }
             }
         }
+        public static double Perimeter(double len, double wid)
+        {
+            return (2 * len) + (2 * wid);
+        }
+        public static double Area(double len, double wid)
+        {
+            return len * wid;
+        }
+        public static double Volume(double len, double wid, double hei)
+        {
+            return len * wid * hei;
+        }
+
     }
 }
