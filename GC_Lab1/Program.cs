@@ -19,13 +19,41 @@ namespace GC_Lab1
     {
         static void Main(string[] args)
         {
+            double length = 0;
+            double width = 0;
+            double height = 0;
             //The user inputs the dimensions of the room.
             Console.Write("Enter Length: ");
-            double length = Convert.ToDouble(Console.ReadLine());
+            try
+            {
+                length = Convert.ToDouble(Console.ReadLine());
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("You did not enter a number! Setting length equal to 5.");
+                length = 5;
+            }
+            
             Console.Write("Enter Width: ");
-            double width = Convert.ToDouble(Console.ReadLine());
+            try
+            {
+                width = Convert.ToDouble(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("You did not enter a number! Setting width equal to 5.");
+                width = 5;
+            }
             Console.Write("Enter Height: ");
-            double height = Convert.ToDouble(Console.ReadLine());
+            try
+            {
+                height = Convert.ToDouble(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("You did not enter a number! Setting height equal to 5.");
+                height = 5;
+            }
 
             //This while loop runs until the user gives a yes (y) or no (n) response to the prompt.
             bool runLoop = true;
@@ -61,18 +89,10 @@ namespace GC_Lab1
                 }
             }
         }
-        public static double Perimeter(double len, double wid)
-        {
-            return (2 * len) + (2 * wid);
-        }
-        public static double Area(double len, double wid)
-        {
-            return len * wid;
-        }
-        public static double Volume(double len, double wid, double hei)
-        {
-            return len * wid * hei;
-        }
+        public static double Perimeter(double len, double wid) => (2 * len) + (2 * wid);
 
+        public static double Area(double len, double wid) => len * wid;
+
+        public static double Volume(double len, double wid, double hei) => len * wid * hei;       
     }
 }
