@@ -19,60 +19,68 @@ namespace GC_Lab1
     {
         static void Main(string[] args)
         {
-            double length = 0;
-            double width = 0;
-            double height = 0;
-            //The user inputs the dimensions of the room.
-            Console.Write("Enter Length: ");
-            try
-            {
-                length = Convert.ToDouble(Console.ReadLine());
-            }
-            catch(FormatException)
-            {
-                Console.WriteLine("You did not enter a number! Setting length equal to 5.");
-                length = 5;
-            }
-            
-            Console.Write("Enter Width: ");
-            try
-            {
-                width = Convert.ToDouble(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("You did not enter a number! Setting width equal to 5.");
-                width = 5;
-            }
-            Console.Write("Enter Height: ");
-            try
-            {
-                height = Convert.ToDouble(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("You did not enter a number! Setting height equal to 5.");
-                height = 5;
-            }
-
-            //This while loop runs until the user gives a yes (y) or no (n) response to the prompt.
             bool runLoop = true;
+            List<double> dimensions = new List<double>();
             while (runLoop)
             {
-                Console.Write("Continue? (y/n): ");
+                Console.Write("Continue or print out rooms entered so far? (y/n/print): ");
                 string entry = Console.ReadLine();
                 if (entry.ToLower() == "y")
                 {
+                double length = 0;
+                double width = 0;
+                double height = 0;
+                
+                //The user inputs the dimensions of the room.
+                Console.Write("Enter Length: ");
+                try
+                {
+                    length = Convert.ToDouble(Console.ReadLine());                     
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("You did not enter a number! Setting length equal to 5.");
+                    length = 5;
+                }
+
+                Console.Write("Enter Width: ");
+                try
+                {
+                    width = Convert.ToDouble(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("You did not enter a number! Setting width equal to 5.");
+                    width = 5;
+                }
+                Console.Write("Enter Height: ");
+                try
+                {
+                    height = Convert.ToDouble(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("You did not enter a number! Setting height equal to 5.");
+                    height = 5;
+                }
+
+            //This while loop runs until the user gives a yes (y) or no (n) response to the prompt.
+            
+            
+                
                     //The area, perimeter, and volume of the room are calculated and output.
                     double area = Area(length, width);
                     double perimeter = Perimeter(length, width);
                     double volume = Volume(length, width, height);
 
                     Console.WriteLine("Area: " + area);
+                    dimensions.Add(area);
                     Console.WriteLine("Perimeter: " + perimeter);
+                    dimensions.Add(perimeter);
                     Console.WriteLine("Volume: " + volume);
+                    dimensions.Add(volume);
                     Console.ReadLine();
-                    runLoop = false;
+                    
                 }
                 else if (entry.ToLower() == "n")
                 {
@@ -80,6 +88,18 @@ namespace GC_Lab1
                     Console.WriteLine("Goodbye!");
                     Console.ReadLine();
                     runLoop = false;
+                }
+                else if (entry.ToLower() == "print")
+                {
+                    Console.WriteLine("Rooms entered so far:");
+                    for (int i = 0; i < dimensions.Count; i++)
+                    {
+                        Console.WriteLine("\nArea: " + dimensions[i]);
+                        i++;
+                        Console.WriteLine("Perimeter: " + dimensions[i]);
+                        i++;
+                        Console.WriteLine("Volume: " + dimensions[i]);
+                    }
                 }
                 else
                 {
@@ -93,6 +113,6 @@ namespace GC_Lab1
 
         public static double Area(double len, double wid) => len * wid;
 
-        public static double Volume(double len, double wid, double hei) => len * wid * hei;       
+        public static double Volume(double len, double wid, double hei) => len * wid * hei;
     }
 }
